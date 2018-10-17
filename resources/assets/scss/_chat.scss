@@ -1,0 +1,129 @@
+#chat {
+  display: flex;
+  flex-direction: row;
+
+  min-height: 400px;
+  height: 60vh;
+
+  & > .chat-list {
+    flex: 1;
+    min-width: 0;
+    @extend form;
+
+    & > ul {
+      list-style: none;
+      overflow-y: scroll;
+      min-height: calc(100% - 37px);
+
+      & > li {
+        display: block;
+        height: 50px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        padding-bottom: 10px;
+
+        -webkit-transition: background-color .2s ease-out;
+        -moz-transition: background-color .2s ease-out;
+        -ms-transition: background-color .2s ease-out;
+        -o-transition: background-color .2s ease-out;
+        transition: background-color .2s ease-out;
+
+        & > span, & > b {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
+          max-width: 95%;
+        }
+
+        &.selected {
+          background-color: #eee;
+          -webkit-transition: background-color .2s ease-in;
+          -moz-transition: background-color .2s ease-in;
+          -ms-transition: background-color .2s ease-in;
+          -o-transition: background-color .2s ease-in;
+          transition: background-color .2s ease-in;
+        }
+      }
+    }
+
+    & > input[type=search] {
+      background-color: green;
+    }
+  }
+
+  & > chat, & > .no-chat {
+    flex: 2;
+    padding: 10px;
+  }
+
+  & > chat {
+    display: block;
+
+    & > .chat-header {
+      display: flex;
+      flex-direction: row;
+      padding: 10px 5px;
+      height: 70px;
+
+      @include border-box();
+
+      & > .chat-title {
+        order: 1;
+        flex: 1;
+        font-weight: bold;
+        font-size: 2em;
+      }
+
+      & > .chat-tools {
+        order: 2;
+        display: inline-flex;
+
+        & > * {
+          margin-left: 5px;
+          color: #aaa;
+        }
+      }
+    }
+
+    & > .chat-messages {
+      @include border-box();
+      height: calc(100% - 50px - 70px);
+      padding: 10px;
+
+      & > ul {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+
+        & > li {
+          display: inline-block;
+          border: 1px solid rgba(0, 0, 0, .15);
+          padding: 5px;
+          @include border-radius(5px);
+          border-bottom-left-radius: 0;
+          margin-bottom: 5px;
+          max-width: 50%;
+          align-self: flex-start;
+
+          &.self {
+            text-align: right;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 5px;
+            align-self: flex-end;
+
+            background-color: #eee;
+          }
+        }
+      }
+    }
+
+    & > .chat-footer {
+      @include border-box();
+      height: 50px;
+    }
+  }
+}

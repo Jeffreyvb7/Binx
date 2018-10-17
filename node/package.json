@@ -1,0 +1,33 @@
+{
+  "name": "binx-live-events",
+  "version": "1.0.0",
+  "description": "Live event emitter for Binx ELO",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "startdev": "ts-node src/index.ts",
+    "dev": "nodemon .",
+    "build": "tsc"
+  },
+  "author": "Noël Hagestein",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^10.0.9",
+    "bookshelf": "^0.13.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "moment": "^2.22.1",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.4",
+    "npm": "^6.0.1",
+    "path": "^0.12.7",
+    "socket.io": "^2.1.0",
+    "underscore": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^1.4.33",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3"
+  }
+}

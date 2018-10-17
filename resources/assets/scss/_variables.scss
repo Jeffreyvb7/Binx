@@ -1,0 +1,42 @@
+// Typography
+$a-color: #1565C0;
+$a-color-hover: #2196F3;
+
+$a-color-red: #f44336;
+$a-color-red-hover: darken(#f44336, 10);
+
+$off-white: rgba(255, 255, 255, .95);
+
+$typograpy-body-color: rgba(0, 0, 0, .87);
+
+// Footer
+$footer-background: #CFD8DC;
+
+$footer-copyright-bar-background-color: #546E7A;
+$footer-copyright-bar-border-color: darken(#546E7A, 3);
+$footer-copyright-bar-height: 75px;
+
+// Breadcrumb
+$breadcrumb-background-color: #f6f6f6;
+$breadcrumb-border-color: darken(#f6f6f6, 5);
+$breadcrumb-color: rgba(0, 0, 0, .7);
+
+// Cards
+$card-background-color: #f6f6f6;
+$card-border-color: darken(#f6f6f6, 5);
+$card-color: rgba(0, 0, 0, .7);
+
+// Toasts
+$toast-background-color: rgba(#424242, .9);
+$toast-border-color: rgba(darken(#424242, 2), .9);
+
+// Forms
+$button-default-color: rgba(0, 0, 0, .87);
+
+// Navigation
+$nav-break-point: 1200px;
+$nav-cross-background-color: rgba(0, 0, 0, .5);
+
+// Columns
+$columns: ("xs": 300px, "sm": 500px, "md": 768px, "lg" : 1200px, "xl": 1400px);
+$columns-count: 12;

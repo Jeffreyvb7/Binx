@@ -1,0 +1,89 @@
+.modal {
+  @extend .xs-12, .sm-12, .md-10, .lg-8, .xl-6;
+  position: fixed;
+  z-index: 6;
+  left: 50%;
+  top: 40%;
+  transform: translate3d(-50%, -50%, 0);
+  display: none;
+  background-color: #fff;
+  animation: modal-from-top-in .5s;
+
+  &.open {
+    display: block;
+  }
+
+  &.closing {
+    animation: modal-to-bottom-out .5s;
+  }
+
+  & > .modal-header, & > form > .modal-header {
+    padding: 10px 16px;
+    background-color: $card-background-color;
+    border: 1px solid $card-border-color;
+
+    display: flex;
+    flex-direction: row;
+
+    & > div.modal-title {
+      order: 1;
+      flex: 1 100%;
+    }
+
+    & > div.modal-tools {
+      order: 2;
+      display: inline-flex;
+
+      & > * {
+        margin-left: 5px;
+        font-size: 14px;
+        color: #aaa;
+
+        &:hover {
+          color: darken(#aaa, 20);
+        }
+      }
+    }
+  }
+
+  & > .modal-body, & > form > .modal-body  {
+    border: 1px solid $card-border-color;
+    border-top: none;
+    padding: 15px;
+  }
+
+  & > .modal-footer, & > form > .modal-footer {
+    padding: 10px 16px;
+    background-color: $card-background-color;
+    border: 1px solid $card-border-color;
+    border-top: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+@keyframes modal-from-top-in {
+  0% {
+    opacity: 0;
+    top: 35%;
+  }
+
+  100% {
+    opacity: 1;
+    top: 40%;
+  }
+}
+
+@keyframes modal-to-bottom-out {
+  0% {
+    opacity: 1;
+    top: 40%;
+  }
+
+  100% {
+    opacity: 0;
+    top: 45%;
+  }
+}

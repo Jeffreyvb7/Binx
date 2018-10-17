@@ -1,0 +1,26 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr 150px;
+
+  &.fullWidth {
+    grid-template-columns: 0 1fr !important;
+  }
+}
+
+@media (max-width: $nav-break-point) {
+  body {
+    grid-template-columns: 0 1fr;
+  }
+}
+
+@media (min-width: $nav-break-point) {
+  body {
+    grid-template-columns: 300px 1fr;
+  }
+
+  body.toggled-nav {
+    grid-template-columns: 0 1fr;
+  }
+}

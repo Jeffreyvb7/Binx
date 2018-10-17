@@ -1,0 +1,108 @@
+@mixin button($color, $blackText) {
+  background-color: $color;
+  border-color: darken($color, 5);
+  @if $blackText == false {
+    color: white;
+  }
+
+  &:hover {
+    background-color: darken($color, 5);
+    @if $blackText == false {
+      color: white;
+    }
+  }
+
+  &:disabled {
+    background-color: lighten($color, 5);
+    cursor: unset;
+  }
+}
+
+@mixin formField() {
+  width: 100%;
+  padding: 10px 15px;
+
+  background-color: #fafafa;
+  border: 1px solid darken(#fafafa, 10);
+
+  @include border-box();
+
+  &:disabled {
+    background-color: #ebebeb;
+    border: 1px solid darken(#ebebeb, 10);
+  }
+}
+
+.btn, button {
+  border: 1px solid #ddd;
+  padding: 5px 15px;
+  color: $button-default-color;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  cursor: pointer;
+
+  -webkit-transition: background-color .15s ease-out;
+  -moz-transition: background-color .15s ease-out;
+  -ms-transition: background-color .15s ease-out;
+  -o-transition: background-color .15s ease-out;
+  transition: background-color .15s ease-out;
+
+  &:hover {
+    -webkit-transition: background-color .15s ease-in;
+    -moz-transition: background-color .15s ease-in;
+    -ms-transition: background-color .15s ease-in;
+    -o-transition: background-color .15s ease-in;
+    transition: background-color .15s ease-in;
+    color: $button-default-color;
+  }
+
+  &.btn-primary {
+    @include button(#007bff, false);
+  }
+
+  &.btn-danger {
+    @include button(#c82333, false);
+  }
+
+  &.btn-warning {
+    @include button(#FF9800, false);
+  }
+
+  &.btn-success {
+    @include button(#4CAF50, false);
+  }
+}
+
+form {
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+
+    & > div.field {
+      flex: 1 100%;
+    }
+
+    &.inline {
+      display: inline-flex;
+      & > input {
+        flex: 1;
+        &[type=submit] {
+          flex: unset;
+        }
+      }
+    }
+  }
+
+  input[type=text], input[type=search], input[type=password], input[type=email], input[type=date], textarea {
+    @include formField();
+  }
+}
+
+input[type=text], input[type=search], input[type=password], input[type=email], input[type=date], textarea {
+  &.form-control {
+    @include formField();
+  }
+}

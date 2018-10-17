@@ -1,0 +1,40 @@
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+
+  & > .card-header {
+    padding: 10px 16px;
+    background-color: $card-background-color;
+    color: $card-color;
+    border: 1px solid $card-border-color;
+
+    display: flex;
+    flex-direction: row;
+
+    & > div.card-title {
+      order: 1;
+      flex: 1 100%;
+    }
+
+    & > div.card-tools {
+      order: 2;
+      display: inline-flex;
+
+      & > * {
+        margin-left: 5px;
+        font-size: 14px;
+        color: #aaa;
+
+        &:hover {
+          color: darken(#aaa, 20);
+        }
+      }
+    }
+  }
+
+  & > .card-body {
+    border: 1px solid $card-border-color;
+    border-top: none;
+    padding: 15px;
+  }
+}

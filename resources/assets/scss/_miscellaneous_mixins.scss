@@ -1,0 +1,19 @@
+@mixin translateY($percent) {
+  -webkit-transform: translateY($percent);
+  -moz-transform: translateY($percent);
+  -ms-transform: translateY($percent);
+  -o-transform: translateY($percent);
+  transform: translateY($percent);
+}
+
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}

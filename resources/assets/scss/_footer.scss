@@ -1,0 +1,36 @@
+footer {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+
+  background-color: $footer-background;
+  border-top: 3px solid darken($footer-background, 10);
+
+  color: rgba(0, 0, 0, .85);
+
+  display: flex;
+  flex-direction: column;
+
+  & > ul.sections, & > div.sections {
+    flex: 1 100%;
+    order: 1;
+    padding: 20px;
+  }
+
+  .copyright-bar {
+    order: 2;
+    height: 70px;
+    width: calc(100% - 2 * 20px);
+    background-color: #546E7A;
+    padding: 10px 20px;
+    line-height: calc(#{$footer-copyright-bar-height} - 2 * 10px);
+    border-top: 3px solid $footer-copyright-bar-border-color;
+    display: flex;
+    justify-content: space-between;
+    
+    & > div {
+      color: $off-white;
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+}

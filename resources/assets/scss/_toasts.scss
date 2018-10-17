@@ -1,0 +1,46 @@
+@mixin toast($color, $blackText) {
+  background-color: $color;
+  border-color: rgba(darken($color, 2), .9);
+  @if $blackText {
+    color: $typograpy-body-color;
+  }
+}
+
+#toasts {
+  position: fixed;
+  right: 75px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+
+  & > .toast {
+    background-color: $toast-background-color;
+    border: 1px solid $toast-border-color;
+    color: $off-white;
+
+    min-width: 300px;
+    padding: 5px 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    margin-top: 10px;
+
+    & > .title {
+      font-weight: bold;
+    }
+
+    &.toast-primary {
+      @include toast(#007bff, false);
+    }
+
+    &.toast-danger {
+      @include toast(#c82333, false);
+    }
+
+    &.toast-warning {
+      @include toast(#FF9800, false);
+    }
+
+    &.toast-success {
+      @include toast(#4CAF50, false);
+    }
+  }
+}

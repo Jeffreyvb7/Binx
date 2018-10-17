@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Chat</div>
+        <div class="card-tools">
+            <a href="#" onclick="binx.modal('newChatroomModal').open(event);"><i class="fas fa-plus"></i></a>
+        </div>
+    </div>
+    <div class="card-body" id="chat">
+        <div class="chat-list">
+            <input type="search" ng-model="chatroom_search" class="form-control" placeholder="Search for chat">
+            <ul>
+                <li ng-repeat="chat in chats | latestChat | filter:{'name': chatroom_search}" ng-click="selectChat(chat.id)" ng-class="{selected: selectedChat === chat.id}">
+                    <b style="font-size: 1.3em;">{{ chat.name }}</b><br>
+                    <span ng-show="chat.latest">
+                        <b>{{ chat.latest.user.first_name + ' ' + chat.latest.user.last_name }}:</b>
+                        {{ chat.latest.message }}
+                    </span>
+                    <span ng-show="!chat.latest">
+                        <i>No messages yet</i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <chat id="selectedChat" ng-show="selectedChat != null"></chat>
+        <div ng-show="selectedChat == null" class="no-chat">
+            <h2>Select a chat on the left!</h2>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="newChatroomModal">
+    <form method="post" ng-submit="createNewChatroom(newChatroom, $event)">
+        <div class="modal-header">
+            <div class="modal-title">Create new chatroom</div>
+            <div class="modal-tools">
+                <a href="#" onclick="binx.modal(this).close(); return false;"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+        <div class="modal-body">
+            <input type="text" ng-model="newChatroom.name" placeholder="Chatroom name" class="form-control">
+            <hr>
+            <userlist ng-model="newChatroom.users" exclude="[userId]"></userlist>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-danger" onclick="binx.modal(this).close()">Cancel</button>
+            <button type="submit" class="btn-primary">Create</button>
+        </div>
+    </form>
+</div>

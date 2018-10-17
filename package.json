@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "scripts": {},
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-css-copy-assets": "0.0.5",
+        "gulp-sass": "^4.0.1",
+        "gulp-sourcemaps": "^2.6.4"
+    },
+    "dependencies": {
+        "npm": "^6.1.0"
+    }
+}

@@ -1,0 +1,9 @@
+@each $column, $value in $columns {
+  @media(min-width: $value) {
+    @for $i from 1 through $columns-count {
+      .#{$column}-#{$i} {
+        width: calc(100% / (#{$columns-count} / #{$i})) !important;
+      }
+    }
+  }
+}
